@@ -1,0 +1,615 @@
+
+> reflectnote-frontend@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.5.12
+   - Local:        http://localhost:3003
+   - Network:      http://192.168.219.107:3003
+   - Environments: .env.local
+   - Experiments (use with caution):
+     ✓ externalDir
+
+ ✓ Starting...
+ ✓ Ready in 3.1s
+ ○ Compiling / ...
+ ⨯ ../backend/src/services/dashboard.ts
+Error: 
+
+Caused by:
+    0: Failed to read source code from C:\Users\ccamd\00_dev\학습성찰일지\backend\src\services\dashboard.ts
+    1: stream did not contain valid UTF-8
+
+Import trace for requested module:
+../backend/src/services/dashboard.ts
+./src/app/page.tsx
+ ⨯ ../backend/src/services/dashboard.ts
+Error: 
+
+Caused by:
+    0: Failed to read source code from C:\Users\ccamd\00_dev\학습성찰일지\backend\src\services\dashboard.ts
+    1: stream did not contain valid UTF-8
+
+Import trace for requested module:
+../backend/src/services/dashboard.ts
+./src/app/page.tsx
+ ⨯ ../backend/src/services/dashboard.ts
+Error: 
+
+Caused by:
+    0: Failed to read source code from C:\Users\ccamd\00_dev\학습성찰일지\backend\src\services\dashboard.ts
+    1: stream did not contain valid UTF-8
+
+Import trace for requested module:
+../backend/src/services/dashboard.ts
+./src/app/page.tsx
+ GET / 500 in 11939ms
+ ⚠ Cross origin request detected from 127.0.0.1 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled /_error in 1831ms (1023 modules)
+Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+ ⨯ unhandledRejection: Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+ ⨯ unhandledRejection:  Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+ ⨯ unhandledRejection: Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+ ⨯ unhandledRejection:  Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+ ⨯ unhandledRejection: Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+ ⨯ unhandledRejection:  Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+ ⨯ unhandledRejection: Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+ ⨯ unhandledRejection:  Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+ ⨯ Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       }, {
+  digest: '1294261235'
+}
+ ⨯ Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       }, {
+  digest: '1294261235'
+}
+ GET / 500 in 5757ms
+ GET / 307 in 96ms
+ ○ Compiling /auth/sign-in ...
+ ✓ Compiled /auth/sign-in in 1235ms (1130 modules)
+ GET /auth/sign-in 200 in 1704ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+ ⨯ unhandledRejection: Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+ ⨯ unhandledRejection:  Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+ ⨯ unhandledRejection: Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+ ⨯ unhandledRejection:  Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+ ⨯ Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       }, {
+  digest: '1294261235'
+}
+ GET / 500 in 2320ms
+Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+ ⨯ unhandledRejection: Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+ ⨯ unhandledRejection:  Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+ ⨯ unhandledRejection: Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+ ⨯ unhandledRejection:  Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       },
+ ⨯ Error: Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#options
+    at eval (src\lib\supabase-server.ts:31:25)
+    at Array.forEach (<anonymous>)
+    at setAll (src\lib\supabase-server.ts:30:24)
+  29 |         setAll(cookieValues: SupabaseCookieWrite[]) {
+  30 |           cookieValues.forEach(({ name, value, options }) => {
+> 31 |             cookieStore.set(name, value, options);
+     |                         ^
+  32 |           });
+  33 |         },
+  34 |       }, {
+  digest: '1294261235'
+}
+ GET / 500 in 5349ms
+ ✓ Compiled in 985ms (1143 modules)
+ GET / 307 in 1215ms
+ GET / 307 in 170ms
+ GET /auth/sign-in 200 in 476ms
+ GET /auth/sign-in 200 in 580ms
+ ○ Compiling /review ...
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled /review in 953ms (1147 modules)
+ GET /auth/sign-in 200 in 1511ms
+ GET /review 307 in 1565ms
+ GET /auth/sign-in 200 in 94ms
+ GET / 200 in 1712ms
+ GET /review 200 in 1360ms
+ GET /review 200 in 1302ms
+ GET /review 200 in 690ms
+ ○ Compiling /progress ...
+ ✓ Compiled /progress in 605ms (1096 modules)
+ ✓ Compiled /weekly in 398ms (1105 modules)
+ GET /progress 200 in 1440ms
+ GET /weekly 200 in 824ms
+ GET /progress 200 in 428ms
+ GET / 200 in 331ms
+ GET / 200 in 1699ms
+ GET / 200 in 762ms
+ ✓ Compiled in 1855ms (1112 modules)
+ ✓ Compiled in 595ms (455 modules)
+ GET / 200 in 748ms
+ GET / 200 in 1332ms
+ ⨯ ./src/components/ui/app-shell.tsx
+Error: 
+
+Caused by:
+    0: Failed to read source code from C:\Users\ccamd\00_dev\학습성찰일지\frontend\src\components\ui\app-shell.tsx
+    1: stream did not contain valid UTF-8
+
+Import trace for requested module:
+./src/components/ui/app-shell.tsx
+./src/app/layout.tsx
+ GET / 500 in 114ms
+ GET / 500 in 108ms
+ ⨯ ./src/components/ui/app-shell.tsx
+Error: 
+
+Caused by:
+    0: Failed to read source code from C:\Users\ccamd\00_dev\학습성찰일지\frontend\src\components\ui\app-shell.tsx
+    1: stream did not contain valid UTF-8
+
+Import trace for requested module:
+./src/components/ui/app-shell.tsx
+./src/app/layout.tsx
+ GET / 500 in 93ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET / 500 in 92ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⨯ ./src/components/ui/app-shell.tsx
+Error: 
+
+Caused by:
+    0: Failed to read source code from C:\Users\ccamd\00_dev\학습성찰일지\frontend\src\components\ui\app-shell.tsx
+    1: stream did not contain valid UTF-8
+
+Import trace for requested module:
+./src/components/ui/app-shell.tsx
+./src/app/layout.tsx
+ GET / 500 in 236ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET / 500 in 230ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⨯ ./src/components/ui/app-shell.tsx
+Error: 
+
+Caused by:
+    0: Failed to read source code from C:\Users\ccamd\00_dev\학습성찰일지\frontend\src\components\ui\app-shell.tsx
+    1: stream did not contain valid UTF-8
+
+Import trace for requested module:
+./src/components/ui/app-shell.tsx
+./src/app/layout.tsx
+ GET / 200 in 343ms
+ GET / 500 in 87ms
+ ✓ Compiled in 231ms (455 modules)
+ GET / 500 in 43ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET / 500 in 460ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⨯ ./src/components/ui/app-shell.tsx
+Error: 
+
+Caused by:
+    0: Failed to read source code from C:\Users\ccamd\00_dev\학습성찰일지\frontend\src\components\ui\app-shell.tsx
+    1: stream did not contain valid UTF-8
+
+Import trace for requested module:
+./src/components/ui/app-shell.tsx
+./src/app/layout.tsx
+ GET / 200 in 304ms
+ GET / 500 in 67ms
+ GET / 500 in 35ms
+ ✓ Compiled in 235ms (455 modules)
+ GET / 500 in 34ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET / 500 in 230ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 2s (1098 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET / 200 in 919ms
+ GET / 200 in 1718ms
+ GET / 307 in 131ms
+ ○ Compiling /auth/sign-in ...
+ ✓ Compiled /auth/sign-in in 880ms (715 modules)
+ GET /auth/sign-in 200 in 1358ms
+ GET / 307 in 689ms
+ GET /auth/sign-in 200 in 208ms
+ GET / 200 in 1014ms
+ GET / 200 in 1700ms
+ GET / 200 in 869ms
+ ✓ Compiled in 1618ms (1112 modules)
+ GET / 200 in 931ms
+ ✓ Compiled in 1343ms (1112 modules)
+ GET / 200 in 304ms
+ ✓ Compiled in 1061ms (1112 modules)
+ GET / 200 in 360ms
+ GET / 307 in 459ms
+ ○ Compiling /auth/sign-in ...
+ ✓ Compiled /auth/sign-in in 2s (715 modules)
+ GET /auth/sign-in 200 in 3068ms
+ GET / 200 in 1407ms
+ ✓ Compiled in 315ms (455 modules)
+ GET / 200 in 240ms
+ GET / 200 in 1751ms
+ GET / 200 in 685ms
+ GET / 200 in 461ms
+ ○ Compiling /weekly ...
+ GET /progress 200 in 1036ms
+ ✓ Compiled /weekly in 1850ms (664 modules)
+ GET /weekly 200 in 3249ms
+ GET /progress 200 in 848ms
+ GET /progress 200 in 595ms
+ GET / 200 in 705ms
+ ✓ Compiled in 324ms (455 modules)
+ GET / 200 in 1056ms
+ ✓ Compiled in 742ms (1112 modules)
+ GET / 200 in 336ms
+ ✓ Compiled in 496ms (1112 modules)
+ GET / 200 in 248ms
+ ✓ Compiled in 582ms (1112 modules)
+ GET / 200 in 234ms
+ ✓ Compiled in 412ms (1112 modules)
+ GET / 200 in 202ms
+ ✓ Compiled in 361ms (1112 modules)
+ GET / 200 in 201ms
+ ✓ Compiled in 363ms (1112 modules)
+ GET / 200 in 232ms
+ ✓ Compiled in 317ms (1112 modules)
+ GET / 200 in 221ms
+ ✓ Compiled in 766ms (1112 modules)
+ GET / 200 in 308ms
+ ✓ Compiled in 503ms (1112 modules)
+ GET / 200 in 239ms
+ ✓ Compiled in 709ms (1112 modules)
+ GET / 200 in 190ms
+ ✓ Compiled in 185ms (455 modules)
+ GET / 200 in 113ms
+ ✓ Compiled in 170ms (455 modules)
+ GET / 200 in 136ms
+ ✓ Compiled in 759ms (1112 modules)
+ GET / 200 in 276ms
+ ✓ Compiled in 559ms (1112 modules)
+ GET / 200 in 249ms
+ ✓ Compiled in 250ms (455 modules)
+ GET / 200 in 155ms
+ ✓ Compiled in 204ms (455 modules)
+ GET / 200 in 112ms
+ ✓ Compiled in 352ms (1112 modules)
+ GET / 200 in 282ms
+ ✓ Compiled in 310ms (1112 modules)
+ GET / 200 in 208ms
+ GET / 200 in 1457ms
+ GET / 200 in 772ms
+ ✓ Compiled in 668ms (1112 modules)
+ GET / 200 in 417ms
+ ✓ Compiled in 316ms (1112 modules)
+ GET / 200 in 214ms
+ ✓ Compiled in 894ms (1112 modules)
+ ✓ Compiled in 937ms (1112 modules)
+ ✓ Compiled in 287ms (455 modules)
+ ✓ Compiled in 896ms (1112 modules)
+ ✓ Compiled in 514ms (1112 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\ccamd\00_dev\학습성찰일지\frontend\.next\cache\webpack\server-development\5.pack.gz_' -> 'C:\Users\ccamd\00_dev\학습성찰일지\frontend\.next\cache\webpack\server-development\5.pack.gz'
+ ✓ Compiled in 691ms (455 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\ccamd\00_dev\학습성찰일지\frontend\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\Users\ccamd\00_dev\학습성찰일지\frontend\.next\cache\webpack\client-development\0.pack.gz'
+^C^C

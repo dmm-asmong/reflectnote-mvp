@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>모바일 최적화 결과 미리보기</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #f0f0f0; font-family: -apple-system, sans-serif; padding: 24px; display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+
+    h2 { font-size: 18px; font-weight: 700; color: #111; margin-bottom: 16px; text-align: center; }
+    .label { font-size: 11px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.08em; text-align: center; margin-bottom: 8px; }
+
+    .frame-wrap { display: flex; flex-direction: column; align-items: center; }
+
+    /* 모바일 프레임 */
+    .phone {
+      width: 375px;
+      height: 780px;
+      background: #fff;
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25), 0 0 0 10px #222;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* 상태바 노치 */
+    .notch {
+      background: #222;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .notch-pill {
+      width: 100px;
+      height: 22px;
+      background: #000;
+      border-radius: 0 0 14px 14px;
+    }
+
+    .screen {
+      flex: 1;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      background: #f7f7f5;
+    }
+
+    /* 헤더 slim */
+    .header-slim {
+      background: #1a1a2e;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .app-name { color: #fff; font-weight: 700; font-size: 14px; }
+    .cta-btn {
+      background: #a3e635;
+      color: #1a1a2e;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 14px;
+    }
+
+    /* 콘텐츠 영역 */
+    .content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px 12px 8px;
+    }
+
+    /* 페이지 헤더 */
+    .page-eyebrow { font-size: 9px; color: #888; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+    .page-title { font-size: 16px; font-weight: 700; color: #111; line-height: 1.3; margin-top: 3px; }
+    .page-desc { font-size: 10px; color: #666; line-height: 1.5; margin-top: 4px; }
+
+    /* 섹션 카드 */
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 12px;
+      margin-top: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .card-eyebrow { font-size: 9px; color: #888; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+    .card-title { font-size: 13px; font-weight: 700; color: #111; margin-top: 2px; }
+
+    /* 폼 요소 */
+    .form-label { font-size: 11px; font-weight: 600; color: #333; margin-bottom: 5px; margin-top: 8px; }
+    .subject-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px; }
+    .chip { font-size: 10px; padding: 4px 10px; border-radius: 20px; background: #f0f0f0; color: #666; }
+    .chip.active { background: #1a1a2e; color: #fff; }
+    .input-mock { background: #f5f5f5; border-radius: 10px; height: 28px; margin-top: 5px; }
+    /* 모바일 textarea — 축소된 높이 */
+    .textarea-mobile { background: #f5f5f5; border-radius: 10px; height: 80px; margin-top: 5px; position: relative; }
+    .textarea-mobile::after { content: "min-h-32 (128px)"; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 9px; color: #aaa; }
+    .dark-card { background: #1a1a2e; border-radius: 14px; padding: 10px; margin-top: 6px; }
+    .dark-textarea { background: rgba(255,255,255,0.08); border-radius: 8px; height: 50px; }
+
+    /* 틀린 문제 버튼 */
+    .dashed-btn { border: 1.5px dashed #ccc; border-radius: 14px; padding: 8px 12px; text-align: center; font-size: 10px; color: #999; margin-top: 6px; }
+
+    /* Sticky 액션 바 — 세로 쌓기 */
+    .action-bar {
+      background: rgba(255,255,255,0.97);
+      border-top: 1px solid #e5e5e5;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .btn-secondary { background: #f5f5f5; color: #555; font-size: 11px; font-weight: 600; padding: 9px; border-radius: 12px; text-align: center; }
+    .btn-primary { background: #1a1a2e; color: #fff; font-size: 11px; font-weight: 600; padding: 9px; border-radius: 12px; text-align: center; }
+
+    /* 하단 탭 바 */
+    .bottom-tab-bar {
+      background: rgba(255,255,255,0.97);
+      border-top: 1px solid #e5e5e5;
+      padding: 6px 0 16px;
+      display: flex;
+      flex-shrink: 0;
+    }
+    .tab {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      padding: 4px 2px;
+    }
+    .tab-indicator { width: 20px; height: 3px; border-radius: 2px; }
+    .tab.active .tab-indicator { background: #a3e635; }
+    .tab:not(.active) .tab-indicator { background: transparent; }
+    .tab-label { font-size: 9px; font-weight: 500; }
+    .tab.active .tab-label { color: #5a7c05; }
+    .tab:not(.active) .tab-label { color: #999; }
+
+    /* 대시보드 화면 */
+    .streak-pill { background: #fff3cd; color: #856404; font-size: 9px; font-weight: 700; padding: 3px 8px; border-radius: 20px; }
+    .stat-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5px; margin-top: 8px; }
+    .stat-card { background: #fff; border-radius: 12px; padding: 8px 6px; text-align: center; }
+    .stat-val { font-size: 14px; font-weight: 700; color: #111; }
+    .stat-hint { font-size: 8px; color: #999; margin-top: 2px; }
+
+    /* 데스크톱 프레임 */
+    .desktop {
+      width: 900px;
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+    .desktop-bar {
+      background: #e8e8e8;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .desktop-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .desktop-header {
+      background: #1a1a2e;
+      padding: 28px 32px 20px;
+    }
+    .desktop-top { display: flex; align-items: flex-start; justify-content: space-between; }
+    .desktop-eyebrow { font-size: 10px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; }
+    .desktop-h1 { font-size: 28px; font-weight: 700; color: #fff; line-height: 1.2; margin-top: 8px; }
+    .desktop-p { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 6px; line-height: 1.5; }
+    .desktop-cta { background: #a3e635; color: #1a1a2e; font-size: 12px; font-weight: 700; padding: 10px 18px; border-radius: 14px; white-space: nowrap; }
+    .desktop-nav { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin-top: 16px; }
+    .desktop-nav-item { border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 10px 14px; }
+    .desktop-nav-item.active { border-color: rgba(163,230,53,0.5); background: rgba(163,230,53,0.1); }
+    .desktop-nav-label { font-size: 12px; font-weight: 600; }
+    .desktop-nav-item.active .desktop-nav-label { color: #a3e635; }
+    .desktop-nav-item:not(.active) .desktop-nav-label { color: #fff; }
+    .desktop-nav-helper { font-size: 10px; margin-top: 2px; }
+    .desktop-nav-item.active .desktop-nav-helper { color: rgba(163,230,53,0.6); }
+    .desktop-nav-item:not(.active) .desktop-nav-helper { color: rgba(255,255,255,0.4); }
+    .desktop-content { padding: 24px 32px; background: #f7f7f5; display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px; min-height: 200px; }
+    .desktop-card { background: #fff; border-radius: 20px; padding: 20px; }
+    .desktop-btn-row { display: flex; gap: 10px; margin-top: 14px; }
+    .desktop-btn { font-size: 12px; padding: 9px 18px; border-radius: 12px; font-weight: 600; }
+    .btn-dark { background: #1a1a2e; color: #fff; }
+    .btn-light { background: #f0f0f0; color: #555; }
+    .desktop-stat-col { display: flex; flex-direction: column; gap: 8px; }
+    .desktop-stat { background: #fff; border-radius: 14px; padding: 14px; }
+    .desktop-stat-val { font-size: 22px; font-weight: 700; color: #111; }
+    .desktop-stat-label { font-size: 10px; color: #888; margin-top: 2px; }
+
+    .badge { display: inline-block; background: #e8f5e9; color: #2e7d32; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 20px; margin-left: 8px; }
+    .section-title { font-size: 20px; font-weight: 800; color: #111; margin-bottom: 4px; }
+    .section-sub { font-size: 12px; color: #666; }
+  </style>
+</head>
+<body>
+
+  <!-- 모바일 — 복습 폼 -->
+  <div class="frame-wrap">
+    <div class="label">모바일 375px — 복습 폼</div>
+    <div class="phone">
+      <div class="notch"><div class="notch-pill"></div></div>
+      <div class="screen">
+        <!-- slim 헤더 -->
+        <div class="header-slim">
+          <span class="app-name">ReflectNote</span>
+          <span class="cta-btn">오늘 복습 시작</span>
+        </div>
+        <!-- 콘텐츠 -->
+        <div class="content">
+          <div class="page-eyebrow">오늘의 복습</div>
+          <div class="page-title">5분 안에 오늘의 이해를 남겨보세요.</div>
+
+          <div class="card">
+            <div class="card-eyebrow">빠른 시작</div>
+            <div class="card-title">1. 오늘 배운 범위 고르기</div>
+            <div class="form-label">과목</div>
+            <div class="subject-chips">
+              <span class="chip active">과학</span>
+              <span class="chip">수학</span>
+              <span class="chip">영어</span>
+              <span class="chip">국어</span>
+              <span class="chip">사회</span>
+            </div>
+            <div class="form-label">단원 또는 주제</div>
+            <div class="input-mock"></div>
+            <div class="form-label">핵심 개념</div>
+            <div class="input-mock"></div>
+          </div>
+
+          <div class="card">
+            <div class="card-eyebrow">핵심 입력</div>
+            <div class="card-title">2. 내 말로 설명하기</div>
+            <!-- 축소된 textarea -->
+            <div class="textarea-mobile"></div>
+            <div class="dark-card">
+              <div style="font-size:10px;color:#a3e635;font-weight:600">아직 헷갈리는 질문</div>
+              <div class="dark-textarea" style="margin-top:6px"></div>
+            </div>
+            <div class="dashed-btn">+ 오늘 틀린 문제가 있어요</div>
+          </div>
+        </div>
+        <!-- sticky 액션 바 — 세로 -->
+        <div class="action-bar">
+          <div class="btn-secondary">임시 저장</div>
+          <div class="btn-primary">AI 피드백 받기</div>
+        </div>
+        <!-- 하단 탭 바 -->
+        <div class="bottom-tab-bar">
+          <div class="tab"><div class="tab-indicator"></div><span class="tab-label">대시보드</span></div>
+          <div class="tab active"><div class="tab-indicator"></div><span class="tab-label">오늘의 복습</span></div>
+          <div class="tab"><div class="tab-indicator"></div><span class="tab-label">이해도</span></div>
+          <div class="tab"><div class="tab-indicator"></div><span class="tab-label">주간 회고</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 모바일 — 대시보드 -->
+  <div class="frame-wrap">
+    <div class="label">모바일 375px — 대시보드</div>
+    <div class="phone">
+      <div class="notch"><div class="notch-pill"></div></div>
+      <div class="screen">
+        <div class="header-slim">
+          <span class="app-name">ReflectNote</span>
+          <span class="cta-btn">오늘 복습 시작</span>
+        </div>
+        <div class="content">
+          <div class="page-eyebrow">대시보드</div>
+          <div class="page-title">오늘의 이해 점검을 3초 안에 시작해요.</div>
+
+          <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start">
+              <div>
+                <div style="font-size:9px;color:#5a7c05;font-weight:700;text-transform:uppercase;letter-spacing:0.08em">오늘 바로 할 일</div>
+                <div style="font-size:15px;font-weight:700;margin-top:3px;color:#111">오늘 복습 한 번 해보세요</div>
+                <div style="font-size:10px;color:#888;margin-top:4px;line-height:1.4">과목, 단원, 개념, 설명만 쓰면 바로 AI 피드백으로 이어집니다.</div>
+              </div>
+              <!-- 연속 일수 — 모바일에서도 표시 -->
+              <span class="streak-pill">3일 연속</span>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:10px">
+              <span class="chip active" style="background:#e8f5e9;color:#2e7d32">과목 고르기</span>
+              <span class="chip active" style="background:#e8f5e9;color:#2e7d32">핵심 개념</span>
+              <span class="chip active" style="background:#e8f5e9;color:#2e7d32">짧게 설명</span>
+            </div>
+            <div class="desktop-btn-row">
+              <div class="desktop-btn btn-dark" style="font-size:10px;padding:7px 12px">복습 시작하기</div>
+              <div class="desktop-btn btn-light" style="font-size:10px;padding:7px 12px">이해도 보기</div>
+            </div>
+          </div>
+
+          <!-- stat 카드 3단 — 모바일에서도 -->
+          <div class="stat-row">
+            <div class="stat-card">
+              <div class="stat-val">3일</div>
+              <div class="stat-hint">현재 스트릭</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-val">5분</div>
+              <div class="stat-hint">오늘 목표</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-val">↑</div>
+              <div class="stat-hint">이해도 흐름</div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:8px">
+            <div class="card-eyebrow">다시 볼 개념</div>
+            <div style="background:#f5f5f5;border-radius:12px;padding:10px;margin-top:6px">
+              <div style="font-size:12px;font-weight:700;color:#111">ATP 합성</div>
+              <div style="font-size:10px;color:#888;margin-top:3px">마지막 설명에서 단계 연결이 약했어요.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom-tab-bar">
+          <div class="tab active"><div class="tab-indicator"></div><span class="tab-label">대시보드</span></div>
+          <div class="tab"><div class="tab-indicator"></div><span class="tab-label">오늘의 복습</span></div>
+          <div class="tab"><div class="tab-indicator"></div><span class="tab-label">이해도</span></div>
+          <div class="tab"><div class="tab-indicator"></div><span class="tab-label">주간 회고</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 데스크톱 -->
+  <div class="frame-wrap" style="width:100%;align-items:center;margin-top:24px">
+    <div class="label">데스크톱 — 변경 없음 (기존 유지)</div>
+    <div class="desktop">
+      <div class="desktop-bar">
+        <div class="desktop-dot" style="background:#ff5f56"></div>
+        <div class="desktop-dot" style="background:#ffbd2e"></div>
+        <div class="desktop-dot" style="background:#27c93f"></div>
+        <div style="flex:1;background:#fff;border-radius:6px;height:18px;margin-left:8px;font-size:10px;color:#888;display:flex;align-items:center;padding:0 8px">localhost:3000</div>
+      </div>
+      <div class="desktop-header">
+        <div class="desktop-top">
+          <div>
+            <div class="desktop-eyebrow">ReflectNote MVP · Track understanding</div>
+            <div class="desktop-h1">오늘 배운 개념을<br/>더 쉽게 다시 설명해요.</div>
+            <div class="desktop-p">공부 시간을 재는 대신, 내가 이해한 개념을 짧게 설명하고 피드백을 받아 다시 다듬는 학습 루프에 집중합니다.</div>
+          </div>
+          <div class="desktop-cta">오늘 복습 시작</div>
+        </div>
+        <div class="desktop-nav" style="margin-top:16px">
+          <div class="desktop-nav-item active">
+            <div class="desktop-nav-label">대시보드</div>
+            <div class="desktop-nav-helper">오늘의 흐름</div>
+          </div>
+          <div class="desktop-nav-item">
+            <div class="desktop-nav-label" style="color:#fff">오늘의 복습</div>
+            <div class="desktop-nav-helper">5분 루프</div>
+          </div>
+          <div class="desktop-nav-item">
+            <div class="desktop-nav-label" style="color:#fff">이해도</div>
+            <div class="desktop-nav-helper">설명 변화</div>
+          </div>
+          <div class="desktop-nav-item">
+            <div class="desktop-nav-label" style="color:#fff">주간 회고</div>
+            <div class="desktop-nav-helper">패턴 정리</div>
+          </div>
+        </div>
+      </div>
+      <div class="desktop-content">
+        <div class="desktop-card">
+          <div style="font-size:10px;color:#5a7c05;font-weight:700;text-transform:uppercase;letter-spacing:0.08em">오늘 바로 할 일</div>
+          <div style="font-size:22px;font-weight:700;margin-top:6px">오늘 복습 한 번 해보세요</div>
+          <div style="font-size:12px;color:#888;margin-top:6px;line-height:1.6">과목, 단원, 핵심 개념, 설명만 쓰면 바로 AI 피드백으로 이어집니다.</div>
+          <div class="desktop-btn-row">
+            <div class="desktop-btn btn-dark">복습 시작하기</div>
+            <div class="desktop-btn btn-light">이해도 흐름 보기</div>
+          </div>
+        </div>
+        <div class="desktop-stat-col">
+          <div class="desktop-stat">
+            <div class="desktop-stat-val">3일</div>
+            <div class="desktop-stat-label">현재 스트릭</div>
+          </div>
+          <div class="desktop-stat">
+            <div class="desktop-stat-val">5분 이내</div>
+            <div class="desktop-stat-label">오늘 목표</div>
+          </div>
+          <div class="desktop-stat">
+            <div class="desktop-stat-val">↑ 상승</div>
+            <div class="desktop-stat-label">이해도 흐름</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

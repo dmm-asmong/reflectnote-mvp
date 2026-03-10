@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/ccamd/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.0/skills/brainstorming/**)",
+      "Read(//c/Users/ccamd/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.0/lib/brainstorm-server/**)",
+      "Bash(curl -s http://localhost:50990)",
+      "Read(//c/Users/ccamd/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.0/skills/writing-plans/**)",
+      "Read(//c/Users/ccamd/00_dev/**)",
+      "Read(//c/Users/ccamd/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.0/skills/subagent-driven-development/**)",
+      "Bash(npx tsc --noEmit)",
+      "Bash(git add frontend/src/components/ui/bottom-tab-bar.tsx frontend/src/components/ui/app-shell.tsx)",
+      "Bash(git commit -m \"feat: add mobile bottom tab bar and slim header\")",
+      "Bash(npm run build)",
+      "Bash(npx tsc --noEmit src/components/ui/app-shell.tsx)",
+      "Bash(git add frontend/src/components/review/daily-review-form.tsx frontend/src/components/ui/button.tsx)",
+      "Bash(git commit -m \"feat: optimize daily review form for mobile\")",
+      "Bash(git add frontend/src/components/review/review-feedback-panel.tsx)",
+      "Bash(git commit -m \"feat: reduce feedback textarea height on mobile\")",
+      "Bash(git add frontend/src/components/dashboard/dashboard-overview.tsx)",
+      "Bash(git commit -m \"feat: show streak on mobile and fix stat grid\")",
+      "Bash(git add frontend/src/components/weekly/weekly-review-panel.tsx)",
+      "Bash(git commit -m \"feat: reduce weekly review textarea height on mobile\")",
+      "Bash(git add frontend/src/components/progress/progress-overview.tsx)",
+      "Bash(git commit -m \"feat: reduce progress scroll area height on mobile\")",
+      "Bash(npx tsc --noEmit src/components/review/daily-review-form.tsx src/components/review/review-feedback-panel.tsx src/components/dashboard/dashboard-overview.tsx src/components/weekly/weekly-review-panel.tsx src/components/progress/progress-overview.tsx)",
+      "Bash(git add backend/src/services/reviews.ts backend/src/services/dashboard.ts backend/src/types/review.ts frontend/src/components/progress/progress-overview.tsx frontend/src/styles/globals.css frontend/src/components/dashboard/dashboard-overview.tsx)",
+      "Bash(git commit:*)",
+      "Bash(netstat -ano)",
+      "Bash(findstr \":1048\")"
+    ]
+  }
+}

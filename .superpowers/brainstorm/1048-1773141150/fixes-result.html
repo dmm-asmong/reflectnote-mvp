@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수정 사항 미리보기</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      background: #f8f9fa;
+      color: #212529;
+      padding: 24px;
+    }
+    h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+    .subtitle { font-size: 13px; color: #868e96; margin-bottom: 32px; }
+    .section { margin-bottom: 32px; }
+    .section-title {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #39d0a9; margin-bottom: 12px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      border: 1px solid rgba(0,0,0,0.07);
+      padding: 20px 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    }
+    .diff {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .diff-item {
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 13px;
+    }
+    .before {
+      background: #fff5f5;
+      border: 1px solid #ffc9c9;
+    }
+    .after {
+      background: #ebfbee;
+      border: 1px solid #8ce99a;
+    }
+    .label {
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; margin-bottom: 8px;
+    }
+    .before .label { color: #fa5252; }
+    .after .label { color: #2f9e44; }
+    .code {
+      font-family: "Consolas", "Courier New", monospace;
+      font-size: 12px;
+      line-height: 1.7;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    .before .code { color: #c92a2a; }
+    .after .code { color: #2b8a3e; }
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .badge-green { background: #ebfbee; color: #2f9e44; }
+    .badge-blue { background: #e7f5ff; color: #1971c2; }
+    .desc { font-size: 13px; color: #495057; line-height: 1.7; margin-top: 8px; }
+
+    /* Dashboard stat card preview */
+    .stat-preview {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .stat-card {
+      background: #f8f9fa;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,0.07);
+      padding: 14px;
+    }
+    .stat-label { font-size: 11px; color: #868e96; font-weight: 500; }
+    .stat-value { font-size: 20px; font-weight: 700; margin-top: 4px; color: #212529; }
+    .stat-hint { font-size: 10px; color: #adb5bd; margin-top: 4px; line-height: 1.4; }
+
+    /* Progress card preview */
+    .progress-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .progress-eyebrow { font-size: 10px; color: #868e96; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+    .progress-title { font-size: 15px; font-weight: 700; }
+    .progress-section {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;
+    }
+    .section-card {
+      background: #f1f3f5; border-radius: 16px; padding: 16px;
+    }
+    .section-card-title { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+
+    /* scrollbar demo */
+    .scrollbar-demo {
+      height: 100px; overflow-y: scroll; padding-right: 4px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .scrollbar-demo.custom-scrollbar::-webkit-scrollbar { width: 4px; }
+    .scrollbar-demo.custom-scrollbar::-webkit-scrollbar-thumb {
+      border-radius: 999px; background: rgba(0,0,0,0.12);
+    }
+    .scrollbar-demo-item {
+      background: #fff; border-radius: 10px; padding: 10px 12px;
+      font-size: 12px; color: #495057; border: 1px solid rgba(0,0,0,0.06);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 600px) {
+      .diff { grid-template-columns: 1fr; }
+      .progress-section { grid-template-columns: 1fr; }
+      .stat-preview { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>수정 사항 미리보기</h1>
+  <p class="subtitle">이전 세션 미수정 항목 4가지 — 커밋 656629f</p>
+
+  <!-- 1. subject -->
+  <div class="section">
+    <div class="section-title">① 기본 과목 하드코딩 제거</div>
+    <div class="card">
+      <p class="desc">오늘의 복습 폼이 처음 열릴 때 과목 필드가 "과학"으로 채워지던 문제를 수정했습니다. 이제 빈 값으로 시작합니다.</p>
+      <div class="diff">
+        <div class="diff-item before">
+          <div class="label">수정 전</div>
+          <div class="code">defaultDraft():
+  subject: "과학"  ← 하드코딩</div>
+        </div>
+        <div class="diff-item after">
+          <div class="label">수정 후</div>
+          <div class="code">defaultDraft():
+  subject: ""  ← 빈 값</div>
+        </div>
+      </div>
+      <p class="desc" style="margin-top:10px">파일: <code>backend/src/services/reviews.ts:50</code></p>
+    </div>
+  </div>
+
+  <!-- 2. mastery 한글화 -->
+  <div class="section">
+    <div class="section-title">② 영어 혼용 한글화</div>
+    <div class="card">
+      <div class="progress-section">
+        <div class="section-card">
+          <div class="section-card-title" style="color:#fa5252">수정 전: 개념 mastery</div>
+          <div style="font-size:11px;color:#868e96">영문과 한글 혼용</div>
+        </div>
+        <div class="section-card" style="background:#ebfbee;border:1px solid #8ce99a">
+          <div class="section-card-title" style="color:#2f9e44">수정 후: 개념 숙달도</div>
+          <div style="font-size:11px;color:#868e96">완전 한글</div>
+        </div>
+      </div>
+      <div class="diff" style="margin-top:12px">
+        <div class="diff-item before">
+          <div class="label">수정 전 (StatCard hint)</div>
+          <div class="code">"MVP에서는 가장 기본적인
+mastery만 보여줍니다."</div>
+        </div>
+        <div class="diff-item after">
+          <div class="label">수정 후 (StatCard hint)</div>
+          <div class="code">"가장 기본적인 개념 숙달도만
+보여줍니다."</div>
+        </div>
+      </div>
+      <p class="desc" style="margin-top:10px">파일: <code>frontend/src/components/progress/progress-overview.tsx</code></p>
+    </div>
+  </div>
+
+  <!-- 3. custom-scrollbar -->
+  <div class="section">
+    <div class="section-title">③ custom-scrollbar CSS 정의</div>
+    <div class="card">
+      <p class="desc">이해도 페이지의 스크롤 영역에서 사용 중이던 <code>.custom-scrollbar</code> 클래스가 실제 스타일 없이 사용되고 있었습니다. 이제 4px 슬림 스크롤바로 정의됩니다.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+        <div>
+          <div style="font-size:11px;font-weight:700;color:#fa5252;margin-bottom:6px">기본 스크롤바 (10px)</div>
+          <div class="scrollbar-demo" style="border:1px solid rgba(0,0,0,0.08);border-radius:12px;background:#f1f3f5">
+            <div class="scrollbar-demo-item">이해도 기록 1</div>
+            <div class="scrollbar-demo-item">이해도 기록 2</div>
+            <div class="scrollbar-demo-item">이해도 기록 3</div>
+            <div class="scrollbar-demo-item">이해도 기록 4</div>
+            <div class="scrollbar-demo-item">이해도 기록 5</div>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:#2f9e44;margin-bottom:6px">.custom-scrollbar (4px)</div>
+          <div class="scrollbar-demo custom-scrollbar" style="border:1px solid rgba(0,0,0,0.08);border-radius:12px;background:#f1f3f5">
+            <div class="scrollbar-demo-item">이해도 기록 1</div>
+            <div class="scrollbar-demo-item">이해도 기록 2</div>
+            <div class="scrollbar-demo-item">이해도 기록 3</div>
+            <div class="scrollbar-demo-item">이해도 기록 4</div>
+            <div class="scrollbar-demo-item">이해도 기록 5</div>
+          </div>
+        </div>
+      </div>
+      <p class="desc" style="margin-top:10px">파일: <code>frontend/src/styles/globals.css</code></p>
+    </div>
+  </div>
+
+  <!-- 4. growthTrend -->
+  <div class="section">
+    <div class="section-title">④ 대시보드 이해도 흐름 동적화</div>
+    <div class="card">
+      <p class="desc">대시보드 StatCard의 이해도 흐름 값이 "조금씩 상승"으로 고정되어 있었습니다. 이제 AI 점수 기반으로 실시간 계산됩니다.</p>
+      <div class="stat-preview" style="margin-top:16px">
+        <div class="stat-card" style="background:#fff5f5;border:1px solid #ffc9c9">
+          <div class="stat-label">수정 전 (하드코딩)</div>
+          <div class="stat-value" style="font-size:15px">조금씩 상승</div>
+          <div class="stat-hint">항상 같은 값</div>
+        </div>
+        <div class="stat-card" style="background:#e7f5ff;border:1px solid #74c0fc">
+          <div class="stat-label">점수 4~5점</div>
+          <div class="stat-value" style="font-size:15px;color:#1971c2">잘 이해 중</div>
+          <div class="stat-hint">최근 AI 점수 기반</div>
+        </div>
+        <div class="stat-card" style="background:#ebfbee;border:1px solid #8ce99a">
+          <div class="stat-label">점수 3점</div>
+          <div class="stat-value" style="font-size:15px;color:#2f9e44">보통 수준</div>
+          <div class="stat-hint">최근 AI 점수 기반</div>
+        </div>
+        <div class="stat-card" style="background:#fff9db;border:1px solid #ffd43b">
+          <div class="stat-label">점수 1~2점</div>
+          <div class="stat-value" style="font-size:15px;color:#e67700">보강 필요</div>
+          <div class="stat-hint">최근 AI 점수 기반</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">복습 없을 때</div>
+          <div class="stat-value" style="font-size:15px;color:#868e96">아직 없음</div>
+          <div class="stat-hint">첫 복습 후 업데이트</div>
+        </div>
+      </div>
+      <p class="desc" style="margin-top:12px">파일: <code>backend/src/services/dashboard.ts</code>, <code>backend/src/types/review.ts</code> (growthTrend 필드 추가)</p>
+    </div>
+  </div>
+
+  <div style="background:#111319;border-radius:20px;padding:20px 24px;color:#fff;margin-top:8px">
+    <div style="font-size:11px;color:#39d0a9;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px">커밋</div>
+    <div style="font-size:13px;font-weight:600">656629f — fix: remove hardcoded values and define custom-scrollbar CSS</div>
+    <div style="font-size:12px;color:#ffffff60;margin-top:4px">6 files changed, 40 insertions(+), 16 deletions(-)</div>
+  </div>
+
+</body>
+</html>

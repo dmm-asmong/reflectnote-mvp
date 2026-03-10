@@ -1,0 +1,37 @@
+
+> reflectnote-frontend@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.5.12
+   - Local:        http://localhost:3002
+   - Network:      http://192.168.219.107:3002
+   - Experiments (use with caution):
+     ✓ externalDir
+
+ ✓ Starting...
+ ✓ Ready in 3.1s
+ ○ Compiling / ...
+ ✓ Compiled / in 19s (658 modules)
+ GET / 200 in 435ms
+ ⚠ Cross origin request detected from 127.0.0.1 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ ✓ Compiled in 2.9s (672 modules)
+ ✓ Compiled in 234ms (234 modules)
+ ✓ Compiled in 772ms (234 modules)
+ GET / 200 in 657ms
+ GET / 200 in 228ms
+ GET / 200 in 169ms
+ ✓ Compiled in 982ms (672 modules)
+ GET / 200 in 544ms
+ ✓ Compiled in 334ms (234 modules)
+ GET / 200 in 126ms
+ GET / 200 in 341ms
+ GET / 200 in 119ms
+   Reload env: .env.local
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 9.5s (672 modules)
+ GET / 307 in 5828ms
+ GET / 200 in 1079ms
+ ○ Compiling /auth/sign-in ...
+ ✓ Compiled /auth/sign-in in 3.5s (783 modules)
+ GET /auth/sign-in 200 in 4623ms
