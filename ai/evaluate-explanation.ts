@@ -59,76 +59,37 @@ async function tryOpenAiEvaluation(input: EvaluateExplanationInput) {
   }
 
   try {
-    const response = await fetch("https://api.openai.com/v1/responses", {
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: process.env.OPENAI_EVAL_MODEL ?? "gpt-4.1-mini",
-        input: [
-          { role: "system", content: [{ type: "input_text", text: SYSTEM_PROMPT }] },
-          { role: "user", content: [{ type: "input_text", text: buildEvaluationPrompt(input) }] },
+        model: process.env.OPENAI_EVAL_MODEL ?? "gpt-4o-mini",
+        response_format: { type: "json_object" },
+        messages: [
+          { role: "system", content: SYSTEM_PROMPT },
+          { role: "user", content: buildEvaluationPrompt(input) },
         ],
-        text: {
-          format: {
-            type: "json_schema",
-            name: "reflectnote_explanation_evaluation",
-            schema: {
-              type: "object",
-              additionalProperties: false,
-              required: [
-                "score",
-                "difficulty",
-                "feedback_summary",
-                "strengths",
-                "improvements",
-                "missing_concepts",
-                "misconception_flags",
-                "metacognition_flags",
-                "rewrite_prompt",
-              ],
-              properties: {
-                score: { type: "integer", minimum: 1, maximum: 5 },
-                difficulty: {
-                  type: "string",
-                  enum: ["elementary", "middle_school", "high_school", "weak", "incorrect"],
-                },
-                feedback_summary: { type: "string" },
-                strengths: { type: "array", items: { type: "string" } },
-                improvements: { type: "array", items: { type: "string" } },
-                missing_concepts: { type: "array", items: { type: "string" } },
-                misconception_flags: { type: "array", items: { type: "string" } },
-                metacognition_flags: { type: "array", items: { type: "string" } },
-                rewrite_prompt: { type: "string" },
-              },
-            },
-          },
-        },
       }),
     });
 
     if (!response.ok) {
+      console.error("OpenAI API Error:", await response.text());
       return null;
     }
 
-    const payload = (await response.json()) as {
-      output_text?: string;
-      output?: Array<{ content?: Array<{ text?: string }> }>;
-    };
-
-    const text =
-      payload.output_text ??
-      payload.output?.flatMap((item) => item.content ?? []).map((item) => item.text ?? "").join("") ??
-      "";
+    const payload = await response.json();
+    const text = payload.choices?.[0]?.message?.content;
 
     if (!text) {
       return null;
     }
 
     return normalizeEvaluationResult(JSON.parse(text));
-  } catch {
+  } catch (error) {
+    console.error("Failed to fetch OpenAI evaluation:", error);
     return null;
   }
 }
