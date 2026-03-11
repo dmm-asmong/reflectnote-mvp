@@ -1,4 +1,6 @@
-﻿import { SignInForm } from "@/components/auth/sign-in-form";
+﻿import { Suspense } from "react";
+
+import { SignInForm } from "@/components/auth/sign-in-form";
 import { SupabaseSetupNotice } from "@/components/auth/supabase-setup-notice";
 import { hasSupabaseEnv } from "@/lib/env";
 
@@ -7,5 +9,9 @@ export default function SignInPage() {
     return <SupabaseSetupNotice />;
   }
 
-  return <SignInForm />;
+  return (
+    <Suspense>
+      <SignInForm />
+    </Suspense>
+  );
 }
