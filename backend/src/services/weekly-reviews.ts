@@ -130,5 +130,6 @@ export async function createWeeklyReview(
     throw new Error(error.message);
   }
 
-  return mapWeeklyReviewRow(data as WeeklyReviewRow);
+  const recentConcepts = await getRecentConcepts(supabase, input.userId, weekStartDate);
+  return mapWeeklyReviewRow(data as WeeklyReviewRow, recentConcepts);
 }
